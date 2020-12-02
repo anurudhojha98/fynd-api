@@ -33,7 +33,8 @@ app.use((req, res) => {
 
 // error handler, send stacktrace only during development
 // this.app.use(errorHandler(stack));
-mongoose.connect('mongodb://localhost/user', { useNewUrlParser: true,useUnifiedTopology: true });
+const uri = "mongodb+srv://anurudhojha98:anurudh@123@cluster0.ly9oc.mongodb.net/user?retryWrites=true&w=majority";
+mongoose.connect(uri, { useNewUrlParser: true,useUnifiedTopology: true });
 app.listen(port, () => console.log(`Listening on port ${port}`));
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
